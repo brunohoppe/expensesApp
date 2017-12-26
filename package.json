@@ -1,0 +1,20 @@
+{
+  "name": "herokuhapiapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bruno botelho",
+  "license": "ISC",
+  "dependencies": {
+    "good": "^7.3.0",
+    "good-console": "^6.4.0",
+    "good-squeeze": "^5.0.2",
+    "hapi": "^16.5.2",
+    "hapi-mongodb": "^4.1.0",
+    "inert": "^4.2.1",
+    "joi": "^9.2.0"
+  }
+}
