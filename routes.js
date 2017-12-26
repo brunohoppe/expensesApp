@@ -6,8 +6,7 @@
         var routesArr = [];
         //------Default Routes------//
         routesArr = routesArr.concat(defaultArrRoutes());
-        //------Lista De Compras Routes------//
-        routesArr = routesArr.concat(listacomprasArrRoutes(Joi));
+		routesArr = routesArr.concat(defaultServerRoutes());
         //------Supermercado Routes------//
         routesArr = routesArr.concat(supermercadoArrRoutes(Joi));
         //------Produto Routes------//
@@ -45,49 +44,8 @@
         }, ];
     }
 
-    function listacomprasArrRoutes(Joi) {
-        return [{
-            method: 'GET',
-            path: '/listacompras',
-            config: {
-                handler: (request, reply) => {
-                    let db = request.server.plugins['hapi-mongodb'].db;
-                    reply(db.collection('listacompras').find({}).toArray());
-                },
-                cors: true
-            }
-        }, {
-            method: 'POST',
-            path: '/listacompras',
-            config: {
-                handler: (request, reply) => {
-                    let lista = request.payload;
-                    let db = request.server.plugins['hapi-mongodb'].db;
-                    db.collection('listacompras').save(lista, (err, result) => {
-                        if (err) return reply(Boom.wrap(err, "Internal MongoDB error"));
-                        reply(lista);
-                    });
-                },
-                validate: {
-                    payload: {
-                        nome: Joi.string().min(5).max(100).required()
-                    }
-                },
-                cors: true
-            }
-        }];
-    }
-
     function supermercadoArrRoutes(Joi) {
         return [{
-            method: 'GET',
-            path: '/supermercados',
-            handler: (request, reply) => {
-                var db = request.server.plugins['hapi-mongodb'].db;
-                reply(db.collection('supermercados').find({}).toArray());
-            }
-            // cors: true
-        }, {
             method: 'POST',
             path: '/supermercado',
             config: {
