@@ -1,20 +1,20 @@
 {
-  "name": "herokuhapiapp",
+  "name": "myexpense",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
-  "author": "bruno botelho",
+  "author": "brunohoppe",
   "license": "ISC",
   "dependencies": {
-    "good": "^7.3.0",
-    "good-console": "^6.4.0",
-    "good-squeeze": "^5.0.2",
-    "hapi": "^16.5.2",
-    "hapi-mongodb": "^4.1.0",
-    "inert": "^4.2.1",
-    "joi": "^9.2.0"
+    "express": "^4.16.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
   }
 }
